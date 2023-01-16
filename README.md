@@ -13,13 +13,13 @@
 
 
 
-## Step 1: Quadratic Programming
+## Part 1: Quadratic Programming
 
 
 
 
 
-## Step 2: Karush-Kuhn Tucker Conditions
+## Part 2: Karush-Kuhn Tucker Conditions
 
 
 
@@ -36,11 +36,11 @@ def getX1Cord(w1,w2,b,x2Cord):
 And one thing important, for d3, instead of reverse the path, we need to swap the order of 2 parts of the path.
 No matter it is 2-opt or 3-opt, the path we put inside should be the loop, where "end" == "start", only in this way can we make sure we will not miss anything.
 
-## 3 Newton's Method
+## Part 3: Newton's Method
 ### 3.3 sub-results
 
 
-## 4 Interior Point Method
+## Part 4: Interior Point Method
 Here is the part of the results.
 11 points:
 | Algorithm        | value    |  time taken  | min value
@@ -64,7 +64,7 @@ The runtime compexity of Bruteforce is O(n!), and the worst case for backtrackin
 In the results part. I seperately run 11, 12, 13, 20, 30, 40, 50 points for these algorithms with the same input. But the brute force and backtracking can not handle so much of hte points, so they stop at 13. So for 20 -50 parts, I can't get the best answer, so I just draw the comparision for each method. From the results we can see:
 
 
-## Step 5 Support Vector Machines Quadratic Program Formulation 
+## Part 5: Support Vector Machines Quadratic Program Formulation 
 
 ### Step 5.5
 
