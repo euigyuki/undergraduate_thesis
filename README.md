@@ -10,37 +10,43 @@
 5.  Support Vector Machines Quadratic Program Formulation 
 6.  Primal Log Barrier Problem
 7.  Final Formulation
+8.  Final thoughts
 
 
 
 ## Part 1: Quadratic Programming
 
+A linearly-constrained quadratic programming problem is a constrained optimization problem where we
+minimize a convex quadratic function subject to linear constraints.
+
+In this paper, I try to add a variety of conditions and techniques to uniquely formulate a higher dimension problem, and attempt to solve it.
 
 
 
 
 ## Part 2: Karush-Kuhn Tucker Conditions
 
+Given a general function that we want to minimize, the optimal solution necessarily has to follow the KKT
+conditions. The KKT conditions are derived from the standard Lagrangian multiplier approach with stationarity, primal feasibility, dual feasibility, and complementary slackness conditions.
 
 
 
 
-And below is how I reverse the path
-```python
-def getX1Cord(w1,w2,b,x2Cord):
-    x1Cord = []
-    for i in range(len(x2Cord)):
-      x1Cord.append((-w2*x2Cord[i]-b)/w1)
-    return x1Cord
-```
-And one thing important, for d3, instead of reverse the path, we need to swap the order of 2 parts of the path.
-No matter it is 2-opt or 3-opt, the path we put inside should be the loop, where "end" == "start", only in this way can we make sure we will not miss anything.
 
 ## Part 3: Newton's Method
-### 3.3 sub-results
+
+
+Newton’s method is an iterative method that helps us find the root of a function. We start with an initial
+guess that is a good approximation of the root, and use multiple iterations by using the Jacobian matrix instead of the traditional tangent line.
 
 
 ## Part 4: Interior Point Method
+
+Unlike previous methods, Interior Point Methods are not restricted by linearity, and we use a barrier function to encode the convex feasible region.
+
+With the iterations, we traverse within the feasible region.  
+
+
 Here is the part of the results.
 11 points:
 | Algorithm        | value    |  time taken  | min value
@@ -91,6 +97,19 @@ And each time i push in the node, i need to update the indegree for all of them,
 ## Part 7:  Final Formulation
 
 ## Part 8:  Final Thoughts
+
+
+
+
+
+And below is how I reverse the path
+```python
+def getX1Cord(w1,w2,b,x2Cord):
+    x1Cord = []
+    for i in range(len(x2Cord)):
+      x1Cord.append((-w2*x2Cord[i]-b)/w1)
+    return x1Cord
+```
 
 
 
