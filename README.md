@@ -3,32 +3,23 @@
 
 ## Content
 
-1.  Autocomplete the location name
-2.  Find the place's Coordinates in the Map
-3.  CalculateShortestPath between two places
-4.  The Traveling Trojan Problem
-5.  Cycle Detection
-6.  Topological Sort
-7.  Find K closest points
-8.  Learinig Experience
+1.  Quadratic Programming
+2.  Karush-Kuhn Tucker Conditions
+3.  Newton's Method
+4.  Interior Point Method
+5.  Support Vector Machines Quadratic Program Formulation 
+6.  Primal Log Barrier Problem
+7.  Final Formulation
 
 
 
-
-## The data Structure
-
-
-
-
-
-
-## Step 1: Autocomplete the location name
+## Step 1: Quadratic Programming
 
 
 
 
 
-## Step 2: Find the place's Coordinates in the Map
+## Step 2: Karush-Kuhn Tucker Conditions
 
 
 
@@ -45,11 +36,11 @@ def getX1Cord(w1,w2,b,x2Cord):
 And one thing important, for d3, instead of reverse the path, we need to swap the order of 2 parts of the path.
 No matter it is 2-opt or 3-opt, the path we put inside should be the loop, where "end" == "start", only in this way can we make sure we will not miss anything.
 
-## 3 Results
+## 3 Newton's Method
 ### 3.3 sub-results
 
 
-## 4 Results
+## 4 Interior Point Method
 Here is the part of the results.
 11 points:
 | Algorithm        | value    |  time taken  | min value
@@ -73,13 +64,12 @@ The runtime compexity of Bruteforce is O(n!), and the worst case for backtrackin
 In the results part. I seperately run 11, 12, 13, 20, 30, 40, 50 points for these algorithms with the same input. But the brute force and backtracking can not handle so much of hte points, so they stop at 13. So for 20 -50 parts, I can't get the best answer, so I just draw the comparision for each method. From the results we can see:
 
 
-## Step 5: Cycle Detection
+## Step 5 Support Vector Machines Quadratic Program Formulation 
+
 ### Step 5.5
 
 
 
-In this function, we need to detect whether there contains cycle in the given area. \
-First we need to get all the points inside the squre, the way to do this is travel all the nodes in data, and then compare the latitude and longtitude with the given area value.  \
 After we get all the node inside, the only thing we need to do is using DFS to travel all the nodes inside, with the condition if once the current children meet their parents, we regard there is a cycle inside.
 
 ```python
@@ -94,13 +84,16 @@ if(DFS_helper(location_ids[i], marks, parent, res) == true){
 
 And each time i push in the node, i need to update the indegree for all of them, so the time complexity is O(n^2).
 
-## Step 6: Learning Experience
+## Part 6:  Primal Log Barrier Problem
 
 
-## Step 7: Learning Experience
+
+## Part 7:  Final Formulation
+
+## Part 8:  Final Thoughts
 
 
-## Step 8: Learning Experience
+
 
 
 
