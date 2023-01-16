@@ -1,8 +1,4 @@
-# undergraduate_thesis
-
-# Di An's Final Report
-
-## Team Member : Di An ( USC ID : 8566513464 )
+# Derrick Kim's undergraduate thesis
 
 
 ## Content
@@ -17,16 +13,7 @@
 8.  Learinig Experience
 
 
-## TrojanMap
 
-This project focuses on using data structures in C++ and implementing various graph algorithms to build a map application.
-
-
-- Please clone the repository, look through [README.md](README.md) and fill up functions to finish in the project.
-- Please make sure that your code can run `bazel run/test`.
-- In this project, you will need to fill up [trojanmap.cc](src/lib/trojanmap.cc) and add unit tests in the `tests` directory.
-
----
 
 ## The data Structure
 
@@ -122,44 +109,8 @@ Time taken by function: 1215 microseconds
 
 
 
-```shell
-2
-**************************************************************
-* 2. Find the position                                        
-**************************************************************
-
-Please input a location:66
--1-1
-*************************Results******************************
-No matched locations.
-**************************************************************
-Time taken by function: 838 microseconds
-```
-
-From the result we can also see that the time complexity is O(n).
 
 
-
-
-
-
-
-### 4.3 3-opt
-Similar to 2-opt, this is how the 3-opt works:
-
-In the 3-opt, instead of choosing part of the path, I choose 2 parts of the path, and do the 2-opt seperately, and I keep doing this until there is no improvement can be made. This 2 algotithms' core ideas are all the same.
-```cpp
-while(true){
-    double delta = 0;
-    for(auto it: combinations){
-      delta += reverse_segment_if_better(path2, it[0], it[1], it[2], results);
-    }
-
-    if(delta >= 0){
-      break;
-    }
-  }
-```
 And below is how I reverse the path
 ```python
 def getX1Cord(w1,w2,b,x2Cord):
