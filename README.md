@@ -59,19 +59,6 @@ We formulate the problem as such:
 
 
 
-After we get all the node inside, the only thing we need to do is using DFS to travel all the nodes inside, with the condition if once the current children meet their parents, we regard there is a cycle inside.
-
-```python
-if(DFS_helper(location_ids[i], marks, parent, res) == true){
-        PlotPointsandEdges(res, square);
-        return true;
-```
-
-
-
-
-
-And each time i push in the node, i need to update the indegree for all of them, so the time complexity is O(n^2).
 
 ## Part 6:  Primal Log Barrier Problem
 
@@ -94,6 +81,15 @@ def getX1Cord(w1,w2,b,x2Cord):
     return x1Cord
 ```
 
+
+
+After we get all the node inside, the only thing we need to do is using DFS to travel all the nodes inside, with the condition if once the current children meet their parents, we regard there is a cycle inside.
+
+```python
+if(DFS_helper(location_ids[i], marks, parent, res) == true){
+        PlotPointsandEdges(res, square);
+        return true;
+```
 
 
 
