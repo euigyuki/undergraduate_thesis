@@ -161,12 +161,12 @@ while(true){
   }
 ```
 And below is how I reverse the path
-```cpp
-double d0 = CalculateDistance(a,b) + CalculateDistance(c,d) + CalculateDistance(e,f);
-double d1 = CalculateDistance(a,c) + CalculateDistance(b,d) + CalculateDistance(e,f);
-double d2 = CalculateDistance(a,b) + CalculateDistance(c,e) + CalculateDistance(d,f);
-double d3 = CalculateDistance(a,d) + CalculateDistance(e,b) + CalculateDistance(c,f);
-double d4 = CalculateDistance(f,b) + CalculateDistance(c,d) + CalculateDistance(e,a);
+```python
+def getX1Cord(w1,w2,b,x2Cord):
+    x1Cord = []
+    for i in range(len(x2Cord)):
+      x1Cord.append((-w2*x2Cord[i]-b)/w1)
+    return x1Cord
 ```
 And one thing important, for d3, instead of reverse the path, we need to swap the order of 2 parts of the path.
 No matter it is 2-opt or 3-opt, the path we put inside should be the loop, where "end" == "start", only in this way can we make sure we will not miss anything.
@@ -243,70 +243,10 @@ It's true because the more nodes inside, the more we need to travel. The complex
 
 
 
-These lines are very important for reading csv files. As we all know, csv file is one kind of excel file, using "," to seperate each column. \
-And after reading all the dependencies and location_names, we can work on our algorithm. \
-Here I given each location with a indegree number. I calculate the indegree number using the dependecies vector. Each time a pointer is pointing to the location name, its indegree wii increase by one.\
-And once we have finish initalizing the indegree counting. What we need to do is keep pushing the location into the results while it's indegree equal to "0", and each time we push the location in, we need to update the indgree for each location. And we keep doing that until the result size reaches to the location name size.
 
-```cpp
-while(result.size() < locations.size()){
-
-    std::cout<<"current count "<<count<<std::endl;
-
-    for(auto it : indegree){
-      if(it.second == 0 and std::find(result.begin(), result.end(), it.first) == result.end()){
-        std::cout<<"current "<<it.first<<"  with indegree "<<count<<"  it pushed in"<<std::endl;
-        result.push_back(it.first);
-
-        //make the current id's neighbor indegree - 1;
-        for(auto i : dependencies){
-          if(i[0] == it.first){
-
-            for(int j = 1; j < i.size(); j++){
-              indegree[i[j]] -= 1;
-            }
-
-          }
-        }
-
-
-      }
-    }
-```
-Besides get the correct order, another thing we need to make sure is that once there is a loop inside, there is no feasible answer for that.\
-How I achieve that is making a counter inside, once I push a location name in, I reset the counter, once the counter exceed the threshold, I believe there is a cycle inside.
-
-### 6.2 Results
-Here I ues the example given from the csv files to prove that it can work in reading the csv file.
-```cpp
-Please input the locations filename:/Users/kk9912/Desktop/github/EE538FINAL/final-project-Mightyall/input/topologicalsort_locations.csv
-Please input the dependencies filename:/Users/kk9912/Desktop/github/EE538FINAL/final-project-Mightyall/input/topologicalsort_dependencies.csv*************************Results******************************
-Topological Sorting Results:
-Cardinal Gardens
-Coffee Bean1
-CVS
-**************************************************************
-Time taken by function: 67246 microseconds
-
-```
 
 Secondly, I enlarge the dependency tree and to test the algothrim.
-```cpp
-location_names = {"Cardinal Gardens", "Coffee Bean1","CVS", "Tap Two Blue", "Target", "Ralphs", "ChickfilA"};
-dependencies = {{"Cardinal Gardens", "Coffee Bean1"}, {"Cardinal Gardens", "CVS"}, {"Coffee Bean1", "CVS"},  {"Coffee Bean1", "Ralphs"},
-      {"Tap Two Blue", "CVS"}, {"Tap Two Blue", "Target"}, {"Target", "ChickfilA"}, {"ChickfilA", "CVS"}};
-      *************************Results******************************
-Topological Sorting Results:
-Cardinal Gardens
-Coffee Bean1
-Ralphs
-Tap Two Blue
-Target
-ChickfilA
-CVS
-**************************************************************
-Time taken by function: 135780 microseconds
-```
+
 
 What's more, I put the loop inside :{"Cardinal Gardens", "CVS"}, {"CVS", "Cardinal Gardens"}\
 And the result fits that there is no feasible solution for that.
@@ -324,72 +264,13 @@ And each time i push in the node, i need to update the indegree for all of them,
 ## Step 7: Find K closest points
 ### 7.1 Function
 In this function, what we need to achieve is finding the k points nearest to the given location, still we regards all the locations are directly conenected!
-```c++
-std::vector<std::string> FindKClosestPoints(std::string name, int k);
-```
-This one is very easy, it's a test of the priority queue's implementation. \
-Fisrt we need to get the name list, still like before, we just travel all the nodes. \
-Then we create a priority queuewith with length k to store the k results. Then one by one we push the location into the results before the queue is full\
-After the queue is full, by the time we need to push an element, we needto compare it with the top of the queue since it's a priority queue, the top is the max.
-```cpp
-else if(ans.size() == k){
-      if(ans.top().first > tempDist){
-        // pop the first ele in queue and push the new result
-        ans.pop();
-        ans.push(temp);
-      }
-    }
-```
+
 
 ### 7.2 Result
 
-```cpp
-Please input the locations:Ralphs
-Please input k:6
 
-Find K Closest Points Results:
-1 St Agnes Church
-2 Saint Agnes Elementary School
-3 Warning Skate Shop
-4 Menlo AvenueWest Twentyninth Street Historic District
-5 Vermont Elementary School
-6 MC39s Barber Shop
-**************************************************************
-Time taken by function: 6451 microseconds
-```
 
-```cpp
-Please input the locations:Ralphs
-Please input k:7
 
-*************************Results******************************
-Find K Closest Points Results:
-1 St Agnes Church
-2 Saint Agnes Elementary School
-3 Warning Skate Shop
-4 Menlo AvenueWest Twentyninth Street Historic District
-5 Vermont Elementary School
-6 MC39s Barber Shop
-7 Anna39s Store
-```
-
-```cpp
-Please input the locations:Ralphs
-Please input k:8
-
-*************************Results******************************
-Find K Closest Points Results:
-1 St Agnes Church
-2 Saint Agnes Elementary School
-3 Warning Skate Shop
-4 Menlo AvenueWest Twentyninth Street Historic District
-5 Vermont Elementary School
-6 MC39s Barber Shop
-7 Anna39s Store
-8 Vermont 38 29th Metro 204 Southbound
-**************************************************************
-Time taken by function: 6178 microseconds
-```
 
 ```cpp
 Please input the locations:Ralphs
@@ -411,25 +292,6 @@ Time taken by function: 6574 microseconds
 ```
 
 
-```cpp
-Please input the locations:Ralphs
-Please input k:10
-
-*************************Results******************************
-Find K Closest Points Results:
-1 St Agnes Church
-2 Saint Agnes Elementary School
-3 Warning Skate Shop
-4 Menlo AvenueWest Twentyninth Street Historic District
-5 Vermont Elementary School
-6 MC39s Barber Shop
-7 Anna39s Store
-8 Vermont 38 29th Metro 204 Southbound
-9 Driveway
-10 Vermont 38 29th Metro 204 Northbound
-**************************************************************
-Time taken by function: 6866 microseconds
-```
 
 From the result we can see that each time with the growth of the results, our outcomes's orders are same, which means our results can be rely on.\
 Then what's interesting is that, no matter how long the results are, the time are the same, which also corresponding to the results that we need to travel all the data inside the map, so the run time complexity is O(n).
