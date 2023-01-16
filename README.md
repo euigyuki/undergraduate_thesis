@@ -47,32 +47,15 @@ Unlike previous methods, Interior Point Methods are not restricted by linearity,
 With the iterations, we traverse within the feasible region.  
 
 
-Here is the part of the results.
-11 points:
-| Algorithm        | value    |  time taken  | min value
-| --------         | -----:   | ----:        |  :----: |
-| br               | 5.0079   |   937691     |  5.0079 |
-| bt               | 5.0079   |   273147     |  5.0079 |
-| 2opt             | 5.0079   |   1133       |  5.0079 |
-| 3opt             | 5.0079   |   3201       |  5.0079 |
-| GA               | 7.3151   |   1034483    |  5.0079 |
-
-50 points:
-| Algorithm        | value    |  time taken  | min value
-| --------         | -----:   | ----:        |  :----:  |
-| br               | 0        |   0          |  8.95889 |
-| bt               | 0        |   0          |  8.95889 |
-| 2opt             | 9.79278  |   30754      |  8.95889 |
-| 3opt             | 8.95889  |   1193881    |  8.95889 |
-| GA               | 19.8612  |   6499453    |  8.95889 |
-
-The runtime compexity of Bruteforce is O(n!), and the worst case for backtracking is O(n!).
-In the results part. I seperately run 11, 12, 13, 20, 30, 40, 50 points for these algorithms with the same input. But the brute force and backtracking can not handle so much of hte points, so they stop at 13. So for 20 -50 parts, I can't get the best answer, so I just draw the comparision for each method. From the results we can see:
 
 
 ## Part 5: Support Vector Machines Quadratic Program Formulation 
 
-### Step 5.5
+Support Vector Machines(SVM) is a popular classification algorithm to classify a set of points by finding a
+hyperplane with the largest separation between the classes.
+
+We formulate the problem as such:
+<p align="center"><img src="img/problem.png" alt="Routing" width="500"/></p>
 
 
 
