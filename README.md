@@ -46,6 +46,7 @@ And one thing important, for d3, instead of reverse the path, we need to swap th
 No matter it is 2-opt or 3-opt, the path we put inside should be the loop, where "end" == "start", only in this way can we make sure we will not miss anything.
 
 ## 3 Results
+### 3.3 sub-results
 
 
 ## 4 Results
