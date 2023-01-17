@@ -75,7 +75,7 @@ Added the log-barrier function, Lagrangian Function, and the KKT conditions, and
 
 ## Part 8:  Final Thoughts
 
-This was a wonderful experience as it was my first time, conducting research. 
+This was a wonderful experience as it was my first time conducting research. 
 
 I was able to get exposure to more rigourous mathematics that I previously would have never seen otherwise. 
 
