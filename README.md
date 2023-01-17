@@ -62,9 +62,16 @@ We formulate the problem as such:
 
 ## Part 6:  Primal Log Barrier Problem
 
+Added the log-barrier function, Lagrangian Function, and the KKT conditions, and converted it to linear formulation.
+
+
+
 
 
 ## Part 7:  Final Formulation
+
+<p align="center"><img src="img/finalformulation.png" alt="Routing" width="500"/></p>
+
 
 ## Part 8:  Final Thoughts
 
