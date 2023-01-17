@@ -75,30 +75,11 @@ Added the log-barrier function, Lagrangian Function, and the KKT conditions, and
 
 ## Part 8:  Final Thoughts
 
+This was a wonderful experience as it was my first time, conducting research. 
 
+I was able to get exposure to more rigourous mathematics that I previously would have never seen otherwise. 
 
-
-
-And below is how I reverse the path
-```python
-def getX1Cord(w1,w2,b,x2Cord):
-    x1Cord = []
-    for i in range(len(x2Cord)):
-      x1Cord.append((-w2*x2Cord[i]-b)/w1)
-    return x1Cord
-```
-
-
-
-After we get all the node inside, the only thing we need to do is using DFS to travel all the nodes inside, with the condition if once the current children meet their parents, we regard there is a cycle inside.
-
-```python
-if(DFS_helper(location_ids[i], marks, parent, res) == true){
-        PlotPointsandEdges(res, square);
-        return true;
-```
-
-
+This was a really hard challenge, but a rewarding experience nevertheless, and motivated me to pursue a career in research in Masters and in PhD. 
 
 
 
